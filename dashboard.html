@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel administrativo de PNK Inmobiliaria.">
+  <title>Dashboard — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="dashboard-layout" id="dashboardLayout">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon">PNK</div>
+        <span>PNK Inmobiliaria</span>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <a href="dashboard.html" class="active">
+          <span class="nav-icon">🏠</span> Dashboard
+        </a>
+        <a href="crud-usuarios.html">
+          <span class="nav-icon">👥</span> Mantenedor de Usuarios
+        </a>
+        <a href="crud-propiedades.html">
+          <span class="nav-icon">🏢</span> Mantenedor de Propiedades
+        </a>
+        <a href="index.html">
+          <span class="nav-icon">🌐</span> Ver Sitio Web
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="avatar">AT</div>
+          <div class="user-info">
+            <div class="name">Admin Torres</div>
+            <div class="role">Administrador</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="dashboard-main" id="dashboardMain">
+      <!-- Top Bar -->
+      <div class="dashboard-topbar" id="topbar">
+        <div class="topbar-left">
+          <h2>Dashboard</h2>
+          <span class="breadcrumb">Panel Admin / Inicio</span>
+        </div>
+        <div class="topbar-right">
+          <a href="login.html" class="btn-logout" id="btnCerrarSesion">🚪 Cerrar Sesión</a>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="dashboard-content" id="dashboardContent">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner" id="welcomeBanner">
+          <h1>Bienvenido: <span style="color:var(--accent);">Admin Torres</span></h1>
+          <p>Administra usuarios, propiedades y el funcionamiento general de la plataforma PNK Inmobiliaria.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card">
+            <div class="stat-icon blue">👥</div>
+            <div class="stat-info">
+              <div class="stat-number">156</div>
+              <div class="stat-label">Usuarios Registrados</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon gold">🏠</div>
+            <div class="stat-info">
+              <div class="stat-number">89</div>
+              <div class="stat-label">Propiedades Activas</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">✅</div>
+            <div class="stat-info">
+              <div class="stat-number">42</div>
+              <div class="stat-label">Gestores Verificados</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red">⏳</div>
+            <div class="stat-info">
+              <div class="stat-number">12</div>
+              <div class="stat-label">Cuentas Pendientes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Access -->
+        <h3
+          style="font-family:var(--font-body); font-size:1.1rem; font-weight:600; color:var(--gray-800); margin-bottom:var(--space-lg);">
+          Accesos Rápidos</h3>
+        <div class="quick-access" id="quickAccess">
+          <a href="crud-usuarios.html" class="access-card" id="accessUsuarios">
+            <div class="card-icon users-icon">👥</div>
+            <h3>Mantenedor de Usuarios</h3>
+            <p>Administra cuentas de Administradores, Propietarios y Gestores Inmobiliarios Free.</p>
+          </a>
+          <a href="crud-propiedades.html" class="access-card" id="accessPropiedades">
+            <div class="card-icon props-icon">🏢</div>
+            <h3>Mantenedor de Propiedades</h3>
+            <p>Publica, edita y elimina propiedades. Gestiona fotos, precios y características.</p>
+          </a>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+</body>
+
+</html>

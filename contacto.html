@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta al equipo de PNK Inmobiliaria.">
+  <title>Contacto — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo-icon">PNK</div>
+        <span>PNK <span class="brand-accent">Inmobiliaria</span></span>
+      </a>
+      <div class="navbar-toggle" onclick="document.getElementById('navMenu').classList.toggle('show')">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html">Inicio</a>
+        <a href="registro-propietario.html">Registro Propietario</a>
+        <a href="registro-gestor.html">Registro Gestor</a>
+        <a href="dashboard.html">Panel Admin</a>
+        <a href="contacto.html" class="active">Contacto</a>
+        <a href="login.html" class="btn-nav">Iniciar Sesión</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== CONTACTO ========== -->
+  <section class="contact-section" id="contactSection">
+    <div class="container">
+      <h2 class="section-title text-center">Contáctenos</h2>
+      <p class="section-subtitle text-center">Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos a la brevedad.</p>
+
+      <div class="contact-grid">
+        <!-- Info Card -->
+        <div class="contact-info-card" id="contactInfo">
+          <h3>Información de Contacto</h3>
+          <p>No dudes en comunicarte con nosotros por cualquiera de estos medios.</p>
+
+          <div class="contact-info-item">
+            <div class="icon">📍</div>
+            <div class="details">
+              <h4>Dirección</h4>
+              <p>Av. Libertador Bernardo O'Higgins 1234, Santiago, Chile</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon">📞</div>
+            <div class="details">
+              <h4>Teléfono</h4>
+              <p>+56 9 1234 5678</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon">📧</div>
+            <div class="details">
+              <h4>Correo Electrónico</h4>
+              <p>info@pnkinmobiliaria.cl</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon">🕐</div>
+            <div class="details">
+              <h4>Horario de Atención</h4>
+              <p>Lunes a Viernes: 09:00 — 18:00 hrs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card" id="contactForm">
+          <h3>Envíanos un Mensaje</h3>
+          <form action="#" method="POST" id="formContacto">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-nombre">Nombre <span class="required">*</span></label>
+                <input type="text" id="contact-nombre" name="nombre" class="form-control" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Correo <span class="required">*</span></label>
+                <input type="email" id="contact-email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-asunto">Asunto <span class="required">*</span></label>
+              <input type="text" id="contact-asunto" name="asunto" class="form-control" placeholder="¿En qué podemos ayudarte?" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-mensaje">Mensaje <span class="required">*</span></label>
+              <textarea id="contact-mensaje" name="mensaje" class="form-control" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="btnEnviarContacto">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2025 PNK Inmobiliaria. Todos los derechos reservados.</span>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

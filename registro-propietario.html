@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Regístrate como propietario en PNK Inmobiliaria para publicar tus inmuebles.">
+  <title>Registro Propietario — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="form-page">
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo-icon">PNK</div>
+        <span>PNK <span class="brand-accent">Inmobiliaria</span></span>
+      </a>
+      <div class="navbar-toggle" onclick="document.getElementById('navMenu').classList.toggle('show')">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html">Inicio</a>
+        <a href="registro-propietario.html" class="active">Registro Propietario</a>
+        <a href="registro-gestor.html">Registro Gestor</a>
+        <a href="dashboard.html">Panel Admin</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html" class="btn-nav">Iniciar Sesión</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== REGISTRO PROPIETARIO ========== -->
+  <div class="form-wrapper">
+    <div class="form-card wide" id="registroPropietarioCard">
+      <h2>Registro de Propietario</h2>
+      <p class="form-subtitle">Completa tus datos para crear tu cuenta como propietario</p>
+
+      <div class="alert alert-warning">
+        ⚠️ Tu cuenta quedará en estado <strong>"Pendiente"</strong> hasta que un administrador la apruebe.
+      </div>
+
+      <form id="formRegistroPropietario" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prop-rut">RUT <span class="required">*</span></label>
+            <input type="text" id="prop-rut" name="rut" class="form-control" placeholder="12.345.678-9" required>
+          </div>
+          <div class="form-group">
+            <label for="prop-nombre">Nombre Completo <span class="required">*</span></label>
+            <input type="text" id="prop-nombre" name="nombre" class="form-control" placeholder="Juan Pérez López" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prop-nacimiento">Fecha de Nacimiento <span class="required">*</span></label>
+            <input type="date" id="prop-nacimiento" name="fecha_nacimiento" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="prop-sexo">Sexo <span class="required">*</span></label>
+            <select id="prop-sexo" name="sexo" class="form-control" required>
+              <option value="">Seleccionar...</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+              <option value="no-especifica">Prefiero no especificar</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prop-email">Correo Electrónico <span class="required">*</span></label>
+            <input type="email" id="prop-email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
+          </div>
+          <div class="form-group">
+            <label for="prop-telefono">Teléfono Móvil <span class="required">*</span></label>
+            <input type="tel" id="prop-telefono" name="telefono" class="form-control" placeholder="+56 9 1234 5678" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prop-password">Contraseña <span class="required">*</span></label>
+          <input type="password" id="prop-password" name="password" class="form-control" placeholder="Mínimo 8 caracteres" required minlength="8">
+        </div>
+
+        <button type="submit" class="btn btn-accent btn-block" id="btnRegistroProp">Crear Cuenta de Propietario</button>
+      </form>
+
+      <div class="form-footer">
+        <p>¿Ya tienes cuenta? <a href="login.html">Iniciar Sesión</a></p>
+        <p style="margin-top: 6px;">¿Eres gestor inmobiliario? <a href="registro-gestor.html">Regístrate como Gestor</a></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

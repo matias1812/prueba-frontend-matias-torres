@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Regístrate como Gestor Inmobiliario Free en PNK Inmobiliaria.">
+  <title>Registro Gestor Inmobiliario — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="form-page">
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo-icon">PNK</div>
+        <span>PNK <span class="brand-accent">Inmobiliaria</span></span>
+      </a>
+      <div class="navbar-toggle" onclick="document.getElementById('navMenu').classList.toggle('show')">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <a href="index.html">Inicio</a>
+        <a href="registro-propietario.html">Registro Propietario</a>
+        <a href="registro-gestor.html" class="active">Registro Gestor</a>
+        <a href="dashboard.html">Panel Admin</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html" class="btn-nav">Iniciar Sesión</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== REGISTRO GESTOR ========== -->
+  <div class="form-wrapper">
+    <div class="form-card wide" id="registroGestorCard">
+      <h2>Registro Gestor Inmobiliario Free</h2>
+      <p class="form-subtitle">Completa tus datos y adjunta tu certificado de antecedentes para crear tu cuenta</p>
+
+      <div class="alert alert-warning">
+        ⚠️ Tu cuenta quedará en estado <strong>"Pendiente"</strong> hasta que un administrador la apruebe y valide tu certificado.
+      </div>
+
+      <form id="formRegistroGestor" action="#" method="POST" enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="gestor-rut">RUT <span class="required">*</span></label>
+            <input type="text" id="gestor-rut" name="rut" class="form-control" placeholder="12.345.678-9" required>
+          </div>
+          <div class="form-group">
+            <label for="gestor-nombre">Nombre Completo <span class="required">*</span></label>
+            <input type="text" id="gestor-nombre" name="nombre" class="form-control" placeholder="María González Ruiz" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="gestor-nacimiento">Fecha de Nacimiento <span class="required">*</span></label>
+            <input type="date" id="gestor-nacimiento" name="fecha_nacimiento" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="gestor-sexo">Sexo <span class="required">*</span></label>
+            <select id="gestor-sexo" name="sexo" class="form-control" required>
+              <option value="">Seleccionar...</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+              <option value="no-especifica">Prefiero no especificar</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="gestor-email">Correo Electrónico <span class="required">*</span></label>
+            <input type="email" id="gestor-email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
+          </div>
+          <div class="form-group">
+            <label for="gestor-telefono">Teléfono Móvil <span class="required">*</span></label>
+            <input type="tel" id="gestor-telefono" name="telefono" class="form-control" placeholder="+56 9 1234 5678" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gestor-password">Contraseña <span class="required">*</span></label>
+          <input type="password" id="gestor-password" name="password" class="form-control" placeholder="Mínimo 8 caracteres" required minlength="8">
+        </div>
+
+        <!-- Campo adicional: Certificado de Antecedentes -->
+        <div class="form-group">
+          <label>Certificado de Antecedentes <span class="required">*</span></label>
+          <div class="file-upload" id="fileUploadCertificado">
+            <input type="file" id="gestor-certificado" name="certificado" accept=".pdf,.jpg,.jpeg,.png" required>
+            <div class="upload-icon">📄</div>
+            <p>Arrastra tu archivo aquí o <strong>haz clic para seleccionar</strong></p>
+            <p class="upload-hint">Formatos aceptados: PDF, JPG, PNG — Máximo 5 MB</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-accent btn-block" id="btnRegistroGestor">Crear Cuenta de Gestor Free</button>
+      </form>
+
+      <div class="form-footer">
+        <p>¿Ya tienes cuenta? <a href="login.html">Iniciar Sesión</a></p>
+        <p style="margin-top: 6px;">¿Eres propietario? <a href="registro-propietario.html">Regístrate como Propietario</a></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

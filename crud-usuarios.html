@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mantenedor de Usuarios — PNK Inmobiliaria.">
+  <title>CRUD Usuarios — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard-layout" id="dashboardLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon">PNK</div>
+        <span>PNK Inmobiliaria</span>
+      </div>
+      <nav class="sidebar-nav" id="sidebarNav">
+        <a href="dashboard.html"><span class="nav-icon">🏠</span> Dashboard</a>
+        <a href="crud-usuarios.html" class="active"><span class="nav-icon">👥</span> Mantenedor de Usuarios</a>
+        <a href="crud-propiedades.html"><span class="nav-icon">🏢</span> Mantenedor de Propiedades</a>
+        <a href="index.html"><span class="nav-icon">🌐</span> Ver Sitio Web</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="avatar">AT</div>
+          <div class="user-info">
+            <div class="name">Admin Torres</div>
+            <div class="role">Administrador</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main" id="dashboardMain">
+      <div class="dashboard-topbar" id="topbar">
+        <div class="topbar-left">
+          <h2>Mantenedor de Usuarios</h2>
+          <span class="breadcrumb">Panel Admin / Usuarios</span>
+        </div>
+        <div class="topbar-right">
+          <a href="login.html" class="btn-logout" id="btnCerrarSesion">🚪 Cerrar Sesión</a>
+        </div>
+      </div>
+
+      <div class="dashboard-content" id="dashboardContent">
+        <div class="table-card" id="usersTableCard">
+          <div class="table-header">
+            <h3>Listado de Usuarios</h3>
+            <div style="display:flex;gap:var(--space-sm);flex-wrap:wrap;align-items:center;">
+              <div class="table-search">
+                <input type="text" id="searchUsuarios" placeholder="Buscar usuario...">
+              </div>
+              <button class="btn btn-accent btn-sm" id="btnNuevoUsuario" onclick="document.getElementById('modalUsuario').classList.remove('hidden')">+ Nuevo Usuario</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table id="tablaUsuarios">
+              <thead>
+                <tr>
+                  <th>RUT</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Rol</th><th>Estado</th><th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12.345.678-9</td><td>Carlos Méndez López</td><td>carlos.mendez@mail.com</td><td>+56 9 8765 4321</td>
+                  <td>Administrador</td><td><span class="status-badge status-active">Activo</span></td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️ Editar</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>11.222.333-4</td><td>Ana María Soto</td><td>ana.soto@mail.com</td><td>+56 9 1111 2222</td>
+                  <td>Propietario</td><td><span class="status-badge status-active">Activo</span></td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️ Editar</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>15.678.901-2</td><td>Roberto Fernández</td><td>roberto.f@mail.com</td><td>+56 9 3333 4444</td>
+                  <td>Gestor Free</td><td><span class="status-badge status-pending">Pendiente</span></td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️ Editar</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>16.789.012-3</td><td>Valentina Reyes</td><td>valentina.r@mail.com</td><td>+56 9 5555 6666</td>
+                  <td>Propietario</td><td><span class="status-badge status-active">Activo</span></td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️ Editar</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>17.890.123-4</td><td>Diego Morales</td><td>diego.m@mail.com</td><td>+56 9 7777 8888</td>
+                  <td>Gestor Free</td><td><span class="status-badge status-inactive">Inactivo</span></td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️ Editar</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>10.111.222-K</td><td>Sofía Contreras</td><td>sofia.c@mail.com</td><td>+56 9 9999 0000</td>
+                  <td>Administrador</td><td><span class="status-badge status-active">Activo</span></td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️ Editar</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span>Mostrando 6 de 6 usuarios</span>
+            <div class="btn-group">
+              <button class="btn btn-outline btn-sm" disabled>← Anterior</button>
+              <button class="btn btn-outline btn-sm" disabled>Siguiente →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal-overlay hidden" id="modalUsuario">
+          <div class="modal">
+            <div class="modal-header">
+              <h3>Nuevo Usuario</h3>
+              <button class="modal-close" onclick="document.getElementById('modalUsuario').classList.add('hidden')">✕</button>
+            </div>
+            <div class="modal-body">
+              <form id="formCrudUsuario">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="crud-rut">RUT *</label>
+                    <input type="text" id="crud-rut" class="form-control" placeholder="12.345.678-9" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="crud-nombre">Nombre *</label>
+                    <input type="text" id="crud-nombre" class="form-control" placeholder="Nombre Apellido" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="crud-email">Correo *</label>
+                    <input type="email" id="crud-email" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="crud-telefono">Teléfono</label>
+                    <input type="tel" id="crud-telefono" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="crud-rol">Rol *</label>
+                    <select id="crud-rol" class="form-control" required>
+                      <option value="">Seleccionar...</option>
+                      <option value="administrador">Administrador</option>
+                      <option value="propietario">Propietario</option>
+                      <option value="gestor-free">Gestor Free</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="crud-estado">Estado</label>
+                    <select id="crud-estado" class="form-control">
+                      <option value="activo">Activo</option>
+                      <option value="pendiente">Pendiente</option>
+                      <option value="inactivo">Inactivo</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="crud-password">Contraseña</label>
+                  <input type="password" id="crud-password" class="form-control">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-outline" onclick="document.getElementById('modalUsuario').classList.add('hidden')">Cancelar</button>
+              <button class="btn btn-accent" id="btnGuardarUsuario">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

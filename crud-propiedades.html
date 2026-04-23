@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mantenedor de Propiedades — PNK Inmobiliaria.">
+  <title>CRUD Propiedades — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard-layout" id="dashboardLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon">PNK</div>
+        <span>PNK Inmobiliaria</span>
+      </div>
+      <nav class="sidebar-nav" id="sidebarNav">
+        <a href="dashboard.html"><span class="nav-icon">🏠</span> Dashboard</a>
+        <a href="crud-usuarios.html"><span class="nav-icon">👥</span> Mantenedor de Usuarios</a>
+        <a href="crud-propiedades.html" class="active"><span class="nav-icon">🏢</span> Mantenedor de Propiedades</a>
+        <a href="index.html"><span class="nav-icon">🌐</span> Ver Sitio Web</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="avatar">AT</div>
+          <div class="user-info">
+            <div class="name">Admin Torres</div>
+            <div class="role">Administrador</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main" id="dashboardMain">
+      <div class="dashboard-topbar" id="topbar">
+        <div class="topbar-left">
+          <h2>Mantenedor de Propiedades</h2>
+          <span class="breadcrumb">Panel Admin / Propiedades</span>
+        </div>
+        <div class="topbar-right">
+          <a href="login.html" class="btn-logout" id="btnCerrarSesion">🚪 Cerrar Sesión</a>
+        </div>
+      </div>
+
+      <div class="dashboard-content" id="dashboardContent">
+        <!-- FORMULARIO DE PROPIEDAD -->
+        <div class="table-card" style="margin-bottom:var(--space-xl);" id="formPropiedadCard">
+          <div class="table-header">
+            <h3>Publicar Nueva Propiedad</h3>
+          </div>
+          <div style="padding:var(--space-xl);">
+            <form id="formPropiedad">
+              <!-- Tipo y Fecha -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prop-tipo">Tipo de Propiedad <span class="required">*</span></label>
+                  <select id="prop-tipo" class="form-control" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="casa">Casa</option>
+                    <option value="departamento">Departamento</option>
+                    <option value="terreno">Terreno</option>
+                    <option value="oficina">Oficina</option>
+                    <option value="local-comercial">Local Comercial</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="prop-fecha">Fecha de Publicación <span class="required">*</span></label>
+                  <input type="date" id="prop-fecha" class="form-control" required>
+                </div>
+              </div>
+
+              <!-- Descripción -->
+              <div class="form-group">
+                <label for="prop-descripcion">Descripción <span class="required">*</span></label>
+                <textarea id="prop-descripcion" class="form-control" rows="4" placeholder="Describa las características principales del inmueble..." required></textarea>
+              </div>
+
+              <!-- Dormitorios, Baños -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prop-dormitorios">Cantidad de Dormitorios <span class="required">*</span></label>
+                  <input type="number" id="prop-dormitorios" class="form-control" min="0" max="20" placeholder="Ej: 3" required>
+                </div>
+                <div class="form-group">
+                  <label for="prop-banos">Cantidad de Baños <span class="required">*</span></label>
+                  <input type="number" id="prop-banos" class="form-control" min="0" max="20" placeholder="Ej: 2" required>
+                </div>
+              </div>
+
+              <!-- Áreas -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prop-area-terreno">Área Total del Terreno (m²) <span class="required">*</span></label>
+                  <input type="number" id="prop-area-terreno" class="form-control" min="0" placeholder="Ej: 500" required>
+                </div>
+                <div class="form-group">
+                  <label for="prop-area-construida">Área Construida (m²) <span class="required">*</span></label>
+                  <input type="number" id="prop-area-construida" class="form-control" min="0" placeholder="Ej: 180" required>
+                </div>
+              </div>
+
+              <!-- Precios -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prop-precio-clp">Precio en $ (CLP) <span class="required">*</span></label>
+                  <input type="number" id="prop-precio-clp" class="form-control" min="0" placeholder="Ej: 150000000" required>
+                </div>
+                <div class="form-group">
+                  <label for="prop-precio-uf">Precio en UF <span class="required">*</span></label>
+                  <input type="number" id="prop-precio-uf" class="form-control" min="0" step="0.01" placeholder="Ej: 4200" required>
+                </div>
+              </div>
+
+              <!-- Fotografías -->
+              <div class="form-group">
+                <label>Fotografías (1 a 10) <span class="required">*</span></label>
+                <div class="file-upload" id="fileUploadFotos">
+                  <input type="file" id="prop-fotos" name="fotos" accept="image/*" multiple required>
+                  <div class="upload-icon">📸</div>
+                  <p>Arrastra tus imágenes aquí o <strong>haz clic para seleccionar</strong></p>
+                  <p class="upload-hint">Sube entre 1 y 10 fotografías — JPG, PNG — Máx. 5 MB c/u</p>
+                </div>
+              </div>
+
+              <!-- Checkboxes de amenidades -->
+              <div class="form-group">
+                <label>Amenidades y Características</label>
+                <div class="checkbox-group">
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="chk-bodega" name="amenidades" value="bodega"> Bodega
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="chk-estacionamiento" name="amenidades" value="estacionamiento"> Estacionamiento
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="chk-logia" name="amenidades" value="logia"> Logia
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="chk-cocina" name="amenidades" value="cocina-amoblada"> Cocina amoblada
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="chk-antejardin" name="amenidades" value="antejardin"> Antejardín
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="chk-patio" name="amenidades" value="patio-trasero"> Patio trasero
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" id="chk-piscina" name="amenidades" value="piscina"> Piscina
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-accent" id="btnPublicarPropiedad" style="margin-top:var(--space-md);">Publicar Propiedad</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- TABLA DE PROPIEDADES -->
+        <div class="table-card" id="propsTableCard">
+          <div class="table-header">
+            <h3>Propiedades Registradas</h3>
+            <div class="table-search">
+              <input type="text" id="searchProps" placeholder="Buscar propiedad...">
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table id="tablaPropiedades">
+              <thead>
+                <tr>
+                  <th>ID</th><th>Tipo</th><th>Descripción</th><th>Dorms</th><th>Baños</th><th>m²</th><th>UF</th><th>CLP</th><th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>001</td><td>Casa</td><td>Casa moderna en Las Condes</td><td>4</td><td>3</td><td>180</td><td>8.500</td><td>$313.650.000</td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>002</td><td>Depto</td><td>Depto premium Providencia</td><td>2</td><td>2</td><td>85</td><td>5.200</td><td>$191.880.000</td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>003</td><td>Terreno</td><td>Terreno plano en Pirque</td><td>—</td><td>—</td><td>4.500</td><td>3.800</td><td>$140.220.000</td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+                <tr>
+                  <td>004</td><td>Casa</td><td>Casa familiar en Ñuñoa</td><td>3</td><td>2</td><td>140</td><td>6.200</td><td>$228.780.000</td>
+                  <td><div class="btn-group"><button class="btn btn-primary btn-sm">✏️</button><button class="btn btn-danger btn-sm">🗑️</button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span>Mostrando 4 de 4 propiedades</span>
+            <div class="btn-group">
+              <button class="btn btn-outline btn-sm" disabled>← Anterior</button>
+              <button class="btn btn-outline btn-sm" disabled>Siguiente →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
