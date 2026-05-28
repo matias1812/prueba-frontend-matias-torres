@@ -1,0 +1,5 @@
+login.php final=1 bad=None
+recuperar.php final=1 bad=None
+registro-gestor.php final=1 bad=None
+crud-usuarios.php final=1 bad=None
+crud-propiedades.php final=1 bad=None
